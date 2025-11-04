@@ -1,0 +1,22 @@
+# Apache2 Log Analysis Commands
+
+1. sudo tail -f /var/log/apache2/access.log
+   → View live web requests.
+
+2. awk '{print $1}' /var/log/apache2/access.log | sort | uniq -c | sort -nr | head -n 20
+   → Identify top IP addresses hitting the server.
+
+3. awk '{print $9}' /var/log/apache2/access.log | sort | uniq -c | sort -nr
+   → Check HTTP status codes (e.g., 404, 500).
+
+4. awk '{print $7}' /var/log/apache2/access.log | sort | uniq -c | sort -nr | head -n 30
+   → Find most accessed resources (potential attack targets).
+
+5. grep " 404 " /var/log/apache2/access.log | awk '{print $1, $7}' | sort | uniq -c | sort -nr | head
+   → Detect scanning or brute force attempts.
+
+6. awk -F\" '{print $6}' /var/log/apache2/access.log | sort | uniq -c | sort -nr | head
+   → Analyze User-Agent strings (find suspicious bots).
+
+7. sudo tail -n 200 /var/log/apache2/error.log
+   → Review recent error messages for attack patterns.
