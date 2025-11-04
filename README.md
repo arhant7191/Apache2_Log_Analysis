@@ -37,7 +37,7 @@ You can view all the log analysis commands here:
 ---
 
 ## 📄 Full Report
-👉 [Download Complete Report (PDF)](Apache2 Log Analysis.pdf)
+👉 [Download Complete Report (PDF)](Apache2_Log_Analysis.pdf)
 
 ---
 
